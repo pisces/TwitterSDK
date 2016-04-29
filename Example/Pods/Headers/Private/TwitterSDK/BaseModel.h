@@ -1,0 +1,1 @@
+../../../../../TwitterSDK/Classes/Model/BaseModel.h

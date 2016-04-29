@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "TwitterSDK"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of TwitterSDK."
+  s.version          = "1.0.0"
+  s.summary          = "TwitterSDK."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,25 +17,28 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-                       DESC
+  s.description      = "TwitterSDK is open source to use apis of twitter."
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/TwitterSDK"
+  s.homepage         = "https://github.com/pisces/TwitterSDK"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "pisces" => "hh963103@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/TwitterSDK.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/pisces/TwitterSDK.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '7.0'
 
   s.source_files = 'TwitterSDK/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'TwitterSDK' => ['TwitterSDK/Assets/*.png']
-  # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  # s.frameworks = 'Foundation'
+  # s.dependency 'OAuthConsumer', '~> 1.0.3'
+  
+  s.resource_bundles = {
+   'TwitterSDK' => ['TwitterSDK/Assets/*']
+  }
+
+  s.pod_target_xcconfig = {
+    'OTHER_LDFLAGS' => '$(inherited) -ObjC -lOAuthConsumer'
+  }
 end

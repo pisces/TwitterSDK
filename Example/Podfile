@@ -1,11 +1,14 @@
-use_frameworks!
+#use_frameworks!
 
-target 'TwitterSDK_Example', :exclusive => true do
+target 'TwitterSDK_Example' do
+  platform :ios, '7.0'
+  pod 'OAuthConsumer', '~> 1.0.3'
   pod 'TwitterSDK', :path => '../'
 end
 
-target 'TwitterSDK_Tests', :exclusive => true do
+target 'TwitterSDK_Tests' do
+  platform :ios, '7.0'
+  pod 'OAuthConsumer', '~> 1.0.3'
   pod 'TwitterSDK', :path => '../'
-
   
 end
