@@ -16,12 +16,20 @@
     "ios": "7.0"
   },
   "source_files": "TwitterSDK/Classes/**/*",
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "dependencies": {
+    "OAuthConsumer": [
+      "~> 1.0.3"
+    ]
+  },
   "resource_bundles": {
     "TwitterSDK": [
       "TwitterSDK/Assets/*"
     ]
   },
   "pod_target_xcconfig": {
-    "OTHER_LDFLAGS": "$(inherited) -ObjC -lOAuthConsumer"
   }
 }

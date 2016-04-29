@@ -1,6 +1,7 @@
 PODS:
   - OAuthConsumer (1.0.3)
-  - TwitterSDK (1.0.0)
+  - TwitterSDK (1.0.0):
+    - OAuthConsumer (~> 1.0.3)
 
 DEPENDENCIES:
   - OAuthConsumer (~> 1.0.3)
@@ -12,7 +13,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   OAuthConsumer: 9e99725d1d58d076ed13e6010a2d74f82e25e4cc
-  TwitterSDK: ed4402a4fdc4fca9abfebefcd9bc24ecfe66c097
+  TwitterSDK: 1cea187fc0ff262a42aca0b4ae43dccc1c8e63eb
 
 PODFILE CHECKSUM: fc134352669e313001c349d93eb049d27f3a9d0b
 
