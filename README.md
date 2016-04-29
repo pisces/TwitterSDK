@@ -25,20 +25,20 @@ NSString *const twitterPrefix = @"yourSiteDomain"; //ex twittersdkdemoapp.com
 @implementation DemoAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-[[TwitterAppCenter defaultCenter] setUpWithKey:twitterConsumerkey
-secret:twitterConsumerSecret
-callbackURLString:twitterOAuthCallbackURL
-rediectURLString:twitterRedirectURLString
-serviceProviderName:twitterServiceProviderName
-prefix:twitterPrefix];
-return YES;
+    [[TwitterAppCenter defaultCenter] setUpWithKey:twitterConsumerkey
+                                            secret:twitterConsumerSecret
+                                 callbackURLString:twitterOAuthCallbackURL
+                                  rediectURLString:twitterRedirectURLString
+                               serviceProviderName:twitterServiceProviderName
+                                            prefix:twitterPrefix];
+    return YES;
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-if ([[TwitterAppCenter defaultCenter] matchedURL:url])
-return [[TwitterAppCenter defaultCenter] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-
-return YES;
+    if ([[TwitterAppCenter defaultCenter] matchedURL:url])
+        return [[TwitterAppCenter defaultCenter] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+    
+    return YES;
 }
 
 @end
@@ -46,52 +46,53 @@ return YES;
 
 #### Info.plist
 ```objc
+<key>CFBundleURLTypes</key>
 <array>
-<dict>
-<key>CFBundleTypeRole</key>
-<string>Editor</string>
-<key>CFBundleURLIconFile</key>
-<string></string>
-<key>CFBundleURLName</key>
-<string>mytwitter</string>
-<key>CFBundleURLSchemes</key>
-<array>
-<string>twitterSDKDemoApp</string>
-</array>
-</dict>
+	<dict>
+		<key>CFBundleTypeRole</key>
+		<string>Editor</string>
+		<key>CFBundleURLIconFile</key>
+		<string></string>
+		<key>CFBundleURLName</key>
+		<string>mytwitter</string>
+		<key>CFBundleURLSchemes</key>
+		<array>
+			<string>twitterSDKDemoApp</string>
+		</array>
+	</dict>
 </array>
 <key>NSAppTransportSecurity</key>
 <dict>
-<key>NSExceptionDomains</key>
-<dict>
-<key>twimg.com</key>
-<dict>
-<key>NSIncludesSubdomains</key>
-<true/>
-<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-<true/>
-<key>NSTemporaryExceptionMinimumTLSVersion</key>
-<string>TLSv1.1</string>
-</dict>
-<key>twitter.com</key>
-<dict>
-<key>NSIncludesSubdomains</key>
-<true/>
-<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-<true/>
-<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-<false/>
-</dict>
-<key>twittersdkdemoapp.com</key>
-<dict>
-<key>NSIncludesSubdomains</key>
-<true/>
-<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-<true/>
-<key>NSTemporaryExceptionMinimumTLSVersion</key>
-<string>TLSv1.1</string>
-</dict>
-</dict>
+	<key>NSExceptionDomains</key>
+	<dict>
+		<key>twimg.com</key>
+		<dict>
+			<key>NSIncludesSubdomains</key>
+			<true/>
+			<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+			<true/>
+			<key>NSTemporaryExceptionMinimumTLSVersion</key>
+			<string>TLSv1.1</string>
+		</dict>
+		<key>twitter.com</key>
+		<dict>
+			<key>NSIncludesSubdomains</key>
+			<true/>
+			<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+			<true/>
+			<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+			<false/>
+		</dict>
+		<key>twittersdkdemoapp.com</key>
+		<dict>
+			<key>NSIncludesSubdomains</key>
+			<true/>
+			<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+			<true/>
+			<key>NSTemporaryExceptionMinimumTLSVersion</key>
+			<string>TLSv1.1</string>
+		</dict>
+	</dict>
 </dict>
 ```
 
@@ -99,39 +100,39 @@ return YES;
 ```objc
 @implementation DemoViewController
 {
-__weak IBOutlet UITextView *textView;
+    __weak IBOutlet UITextView *textView;
 }
 
 - (void)viewDidLoad {
-[super viewDidLoad];
-
-self.title = @"TwitterSDK Demo";
+    [super viewDidLoad];
+    
+    self.title = @"TwitterSDK Demo";
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-[super viewDidAppear:animated];
-
-if ([TwitterAppCenter defaultCenter].hasSession) {
-[self load];
-} else {
-[[TwitterAppCenter defaultCenter] loginWithCompletion:^(id result, NSError *error) {
-if (!error) {
-[self load];
-}
-}];
-}
+    [super viewDidAppear:animated];
+    
+    if ([TwitterAppCenter defaultCenter].hasSession) {
+        [self load];
+    } else {
+        [[TwitterAppCenter defaultCenter] loginWithCompletion:^(id result, NSError *error) {
+            if (!error) {
+                [self load];
+            }
+        }];
+    }
 }
 
 - (void)load {
-NSString *path = @"https://api.twitter.com/1.1/statuses/home_timeline.json";
-NSDictionary *params = @{@"count": @"10",
-@"user_id": [TwitterAppCenter defaultCenter].oauth.user.user_id,
-@"screen_name": [TwitterAppCenter defaultCenter].oauth.user.screen_name};
-
-[[TwitterAppCenter defaultCenter] apiCallWithPath:path params:params completion:^(NSDictionary *result, NSError *error) {
-NSLog(@"result -> %@", result);
-textView.text = [NSString stringWithFormat:@"%@", result];
-}];
+    NSString *path = @"https://api.twitter.com/1.1/statuses/home_timeline.json";
+    NSDictionary *params = @{@"count": @"10",
+                             @"user_id": [TwitterAppCenter defaultCenter].oauth.user.user_id,
+                             @"screen_name": [TwitterAppCenter defaultCenter].oauth.user.screen_name};
+    
+    [[TwitterAppCenter defaultCenter] apiCallWithPath:path params:params completion:^(NSDictionary *result, NSError *error) {
+        NSLog(@"result -> %@", result);
+        textView.text = [NSString stringWithFormat:@"%@", result];
+    }];
 }
 
 @end
