@@ -140,6 +140,8 @@ NSString *const twitterPrefix = @"yourSiteDomain"; //ex twittersdkdemoapp.com
 
 ## Requirements
 
+iOS Deployment Target 7.0 higher
+
 ## Installation
 
 TwitterSDK is available through [CocoaPods](http://cocoapods.org). To install
