@@ -31,14 +31,14 @@ Pod::Spec.new do |s|
   s.source_files = 'TwitterSDK/Classes/**/*'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'Foundation'
-  # s.dependency 'OAuthConsumer', '~> 1.0.3'
+  s.frameworks = 'Foundation', 'UIKit'
+  s.dependency 'OAuthConsumer', '~> 1.0.3'
   
   s.resource_bundles = {
    'TwitterSDK' => ['TwitterSDK/Assets/*']
   }
 
   s.pod_target_xcconfig = {
-    'OTHER_LDFLAGS' => '$(inherited) -ObjC -lOAuthConsumer'
+
   }
 end
