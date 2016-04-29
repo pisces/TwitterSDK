@@ -5,6 +5,9 @@
 [![License](https://img.shields.io/cocoapods/l/TwitterSDK.svg?style=flat)](http://cocoapods.org/pods/TwitterSDK)
 [![Platform](https://img.shields.io/cocoapods/p/TwitterSDK.svg?style=flat)](http://cocoapods.org/pods/TwitterSDK)
 
+## Demo App Screen Shot
+<img src="https://raw.githubusercontent.com/pisces/TwitterSDK/master/ScreenShot/sh_001.png" width="320"/>
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
