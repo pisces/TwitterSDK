@@ -27,12 +27,12 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '7.0'
-
+  s.requires_arc = true
   s.source_files = 'TwitterSDK/Classes/**/*'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'Foundation', 'UIKit'
-  s.dependency 'OAuthConsumer', '~> 1.0.3'
+  s.dependency 'OAuthConsumer'
   
   s.resource_bundles = {
    'TwitterSDK' => ['TwitterSDK/Assets/*']

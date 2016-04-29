@@ -15,12 +15,12 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 #import "DemoAppDelegate.h"
 #import <TwitterSDK/TwitterSDK.h>
 
-NSString *const twitterConsumerkey = @"9MhNCyIMMZFP3G6XwByYNlY3Y";
-NSString *const twitterConsumerSecret = @"Pl30RmdAEJSLp5W3nKtD2XWnb3ORKVEFVLow8gm3yqkEi1XOYH";
-NSString *const twitterOAuthCallbackURL = @"http://www.twittersdkdemoapp.com/oauth_callback";
-NSString *const twitterRedirectURLString = @"twitterSDKDemoApp://authorize_complete";
-NSString *const twitterServiceProviderName = @"twitterSDKDemoApp";
-NSString *const twitterPrefix = @"twittersdkdemoapp.com";
+NSString *const twitterConsumerkey = @"Your Consumer Key for Twitter API";
+NSString *const twitterConsumerSecret = @"Your Consumer Secret for Twitter API";
+NSString *const twitterOAuthCallbackURL = @"http://yourSiteDomain/oauth_callback";
+NSString *const twitterRedirectURLString = @"yourAppScheme://authorize_complete";
+NSString *const twitterServiceProviderName = @"yourServiceProviderName"; //ex twitterSDKDemoApp
+NSString *const twitterPrefix = @"yourSiteDomain"; //ex twittersdkdemoapp.com
 
 @implementation DemoAppDelegate
 
