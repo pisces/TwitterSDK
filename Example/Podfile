@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TwitterSDK_Example', :exclusive => true do
+  pod 'TwitterSDK', :path => '../'
+end
+
+target 'TwitterSDK_Tests', :exclusive => true do
+  pod 'TwitterSDK', :path => '../'
+
+  
+end
