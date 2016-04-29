@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/TwitterSDK.svg?style=flat)](http://cocoapods.org/pods/TwitterSDK)
 
 ## Demo App Screen Shot
-<img src="https://raw.githubusercontent.com/pisces/TwitterSDK/master/ScreenShot/sh_001.png" width="320"/>
+![Alt text](https://github.com/pisces/TwitterSDK/raw/master/ScreenShot/sh_001.png)
 
 ## Usage
 
